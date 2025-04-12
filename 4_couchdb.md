@@ -124,7 +124,8 @@ docker-compose stop couchbase2
 
 ```
 
-Сервер через 10 секунд автоматом делает `failover` 
+Сервер через 10 секунд автоматом делает `failover`
+ 
 ![png](4_couchdb_files/failover.png)
 
 * Проверка доступности данных:
