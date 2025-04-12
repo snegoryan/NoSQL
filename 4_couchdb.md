@@ -83,7 +83,7 @@ docker-compose up -d
 
 1.Откроем веб-интерфейс Couchbase: `http://localhost:8094`
 * Создаём новый кластер `myCluster` через `Setup New Cluster`
-  ![png](4_couchdb_files/new_cluster.png)
+  ![png](4_couchdb_files/configure.png)
 * Меняем конфигурацию, из-за слабой хост машины выделяем минимальные значения квоты памяти в `256 MiB`, оставляем только роли ноды `Data`, `Query`, `Index` и `Search` - в рамках учебного запуска этого будет достаточно. Остальные параметры по-умолчанию:
   
   ![png](4_couchdb_files/config.png)
