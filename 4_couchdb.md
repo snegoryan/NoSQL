@@ -31,9 +31,6 @@ services:
       - .app/node1:/opt/couchbase/var
     ports:
       - 8094:8091
-    environment:
-      - COUCHBASE_ADMINISTRATOR_USERNAME=admin
-      - COUCHBASE_ADMINISTRATOR_PASSWORD=qwe123
     networks:
       - couchbase-net
       
@@ -44,9 +41,6 @@ services:
       - .app/node2:/opt/couchbase/var
     ports:
       - 8095:8091
-    environment:
-      - COUCHBASE_ADMINISTRATOR_USERNAME=admin
-      - COUCHBASE_ADMINISTRATOR_PASSWORD=qwe123
     networks:
       - couchbase-net
       
@@ -60,9 +54,6 @@ services:
       - 8092:8092
       - 8093:8093
       - 11210:11210
-    environment:
-      - COUCHBASE_ADMINISTRATOR_USERNAME=admin
-      - COUCHBASE_ADMINISTRATOR_PASSWORD=qwe123
     networks:
       - couchbase-net
 
