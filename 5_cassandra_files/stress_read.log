@@ -1,0 +1,466 @@
+******************** Stress Settings ********************
+Command:
+  Type: read
+  Count: 50,000
+  No Warmup: false
+  Consistency Level: ONE
+  Target Uncertainty: not applicable
+  Key Size (bytes): 10
+  Counter Increment Distibution: add=fixed(1)
+Rate:
+  Auto: true
+  Min Threads: 4
+  Max Threads: 1000
+Population:
+  Distribution: Gaussian:  min=1,max=50000,mean=25000.500000,stdev=8333.166667
+  Order: ARBITRARY
+  Wrap: false
+Insert:
+  Revisits: Uniform:  min=1,max=1000000
+  Visits: Fixed:  key=1
+  Row Population Ratio: Ratio: divisor=1.000000;delegate=Fixed:  key=1
+  Batch Type: not batching
+Columns:
+  Max Columns Per Key: 5
+  Column Names: [C0, C1, C2, C3, C4]
+  Comparator: AsciiType
+  Timestamp: null
+  Variable Column Count: false
+  Slice: false
+  Size Distribution: Fixed:  key=34
+  Count Distribution: Fixed:  key=5
+Errors:
+  Ignore: false
+  Tries: 10
+Log:
+  No Summary: false
+  No Settings: false
+  File: stress_read.log
+  Interval Millis: 1000
+  Level: NORMAL
+Mode:
+  API: JAVA_DRIVER_NATIVE
+  Connection Style: CQL_PREPARED
+  CQL Version: CQL3
+  Protocol Version: V5
+  Username: null
+  Password: null
+  Auth Provide Class: null
+  Max Pending Per Connection: 128
+  Connections Per Host: 8
+  Compression: NONE
+Node:
+  Nodes: [localhost]
+  Is White List: false
+  Datacenter: null
+Schema:
+  Keyspace: stress_test
+  Replication Strategy: org.apache.cassandra.locator.SimpleStrategy
+  Replication Strategy Options: {replication_factor=1}
+  Table Compression: null
+  Table Compaction Strategy: null
+  Table Compaction Strategy Options: {}
+Transport:
+  truststore=null; truststore-password=null; keystore=null; keystore-password=null; ssl-protocol=TLS; ssl-alg=null; ssl-ciphers=TLS_RSA_WITH_AES_128_CBC_SHA,TLS_RSA_WITH_AES_256_CBC_SHA; 
+Port:
+  Native Port: 9042
+  JMX Port: 7199
+Graph:
+  File: stress_read.html
+  Revision: unknown
+  Title: null
+  Operation: READ
+TokenRange:
+  Wrap: false
+  Split Factor: 1
+
+Sleeping 2s...
+Warming up READ with 12500 iterations...
+Thread count was not specified
+
+Running with 4 threadCount
+Running READ with 4 threads for 50000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                   706,     706,     706,     706,     2.1,     1.4,     5.7,    10.0,    21.9,    21.9,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                  3025,    2319,    2319,    2319,     1.7,     1.3,     4.0,     6.5,    11.6,    12.4,    2.0,  0.37458,      0,      0,       0,       0,       0,       0
+total,                                                  5166,    2141,    2141,    2141,     1.8,     1.2,     5.0,    10.0,    18.0,    26.4,    3.0,  0.24129,      0,      0,       0,       0,       0,       0
+total,                                                  7169,    2003,    2003,    2003,     2.0,     1.3,     6.0,    10.1,    19.4,    22.5,    4.0,  0.17715,      0,      0,       0,       0,       0,       0
+total,                                                 10010,    2841,    2841,    2841,     1.4,     1.1,     3.1,     5.9,    13.0,    17.4,    5.0,  0.15741,      0,      0,       0,       0,       0,       0
+total,                                                 12747,    2737,    2737,    2737,     1.4,     1.1,     3.2,     7.7,    15.6,    26.6,    6.0,  0.13471,      0,      0,       0,       0,       0,       0
+total,                                                 15725,    2978,    2978,    2978,     1.3,     0.9,     2.9,     7.7,    19.3,    48.7,    7.0,  0.12175,      0,      0,       0,       0,       0,       0
+total,                                                 18923,    3198,    3198,    3198,     1.2,     1.0,     2.6,     4.6,    10.7,    15.8,    8.0,  0.11107,      0,      0,       0,       0,       0,       0
+total,                                                 21892,    2969,    2969,    2969,     1.3,     1.0,     2.7,     7.2,    13.0,    21.0,    9.0,  0.09939,      0,      0,       0,       0,       0,       0
+total,                                                 23929,    2037,    2037,    2037,     2.0,     1.1,     7.1,    14.0,    66.6,    75.5,   10.0,  0.09118,      0,      0,       0,       0,       0,       0
+total,                                                 27222,    3293,    3293,    3293,     1.2,     0.9,     2.5,     6.2,    16.6,    31.1,   11.0,  0.08621,      0,      0,       0,       0,       0,       0
+total,                                                 30925,    3703,    3703,    3703,     1.1,     0.9,     2.1,     3.5,     8.2,     8.5,   12.0,  0.08405,      0,      0,       0,       0,       0,       0
+total,                                                 34530,    3605,    3605,    3605,     1.1,     0.8,     2.5,     4.5,     7.9,    13.3,   13.0,  0.08017,      0,      0,       0,       0,       0,       0
+total,                                                 38054,    3524,    3524,    3524,     1.1,     0.9,     2.2,     6.1,    15.8,    23.4,   14.0,  0.07596,      0,      0,       0,       0,       0,       0
+total,                                                 41846,    3792,    3792,    3792,     1.0,     0.8,     2.4,     5.1,     9.4,    15.5,   15.0,  0.07317,      0,      0,       0,       0,       0,       0
+total,                                                 45425,    3579,    3579,    3579,     1.1,     0.8,     2.5,     5.4,    16.1,    25.7,   16.0,  0.06949,      0,      0,       0,       0,       0,       0
+total,                                                 49001,    3576,    3576,    3576,     1.1,     0.9,     2.3,     4.1,     8.7,    10.7,   17.0,  0.06591,      0,      0,       0,       0,       0,       0
+total,                                                 50000,    4017,    4017,    4017,     1.0,     0.8,     1.8,     3.9,    14.4,    14.4,   17.2,  0.06511,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :    2,899 op/s  [READ: 2,899 op/s]
+Partition rate            :    2,899 pk/s  [READ: 2,899 pk/s]
+Row rate                  :    2,899 row/s [READ: 2,899 row/s]
+Latency mean              :    1.3 ms [READ: 1.3 ms]
+Latency median            :    1.0 ms [READ: 1.0 ms]
+Latency 95th percentile   :    3.1 ms [READ: 3.1 ms]
+Latency 99th percentile   :    7.2 ms [READ: 7.2 ms]
+Latency 99.9th percentile :   15.4 ms [READ: 15.4 ms]
+Latency max               :   75.5 ms [READ: 75.5 ms]
+Total partitions          :     50,000 [READ: 50,000]
+Total errors              :          0 [READ: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:17
+
+
+Running with 8 threadCount
+Running READ with 8 threads for 50000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                  3561,    3561,    3561,    3561,     1.5,     1.1,     4.2,     7.2,    11.5,    18.7,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                  8081,    4520,    4520,    4520,     1.7,     1.1,     4.9,    11.1,    28.9,    46.7,    2.0,  0.09398,      0,      0,       0,       0,       0,       0
+total,                                                 12514,    4433,    4433,    4433,     1.8,     1.2,     5.0,     9.2,    19.8,    57.1,    3.0,  0.06827,      0,      0,       0,       0,       0,       0
+total,                                                 16787,    4273,    4273,    4273,     1.9,     1.2,     5.7,    10.4,    35.7,    45.6,    4.0,  0.05120,      0,      0,       0,       0,       0,       0
+total,                                                 21064,    4277,    4277,    4277,     1.8,     1.3,     5.2,     9.3,    16.8,    42.2,    5.0,  0.04093,      0,      0,       0,       0,       0,       0
+total,                                                 24903,    3839,    3839,    3839,     2.1,     1.2,     6.0,    10.2,    82.8,    86.2,    6.0,  0.03509,      0,      0,       0,       0,       0,       0
+total,                                                 29408,    4505,    4505,    4505,     1.8,     1.2,     4.8,     9.2,    22.0,    44.4,    7.0,  0.03148,      0,      0,       0,       0,       0,       0
+total,                                                 33931,    4523,    4523,    4523,     1.8,     1.4,     4.3,     6.5,    10.9,    19.1,    8.0,  0.02786,      0,      0,       0,       0,       0,       0
+total,                                                 38629,    4698,    4698,    4698,     1.7,     1.2,     4.4,     9.0,    19.8,    24.8,    9.0,  0.02605,      0,      0,       0,       0,       0,       0
+total,                                                 43740,    5111,    5111,    5111,     1.6,     1.1,     3.9,     6.8,    14.3,    24.8,   10.0,  0.02792,      0,      0,       0,       0,       0,       0
+total,                                                 49143,    5403,    5403,    5403,     1.5,     1.0,     3.8,     7.9,    26.6,    35.6,   11.0,  0.03154,      0,      0,       0,       0,       0,       0
+total,                                                 50000,    4603,    4603,    4603,     1.7,     1.1,     5.1,    10.0,    17.4,    17.4,   11.2,  0.02958,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :    4,470 op/s  [READ: 4,470 op/s]
+Partition rate            :    4,470 pk/s  [READ: 4,470 pk/s]
+Row rate                  :    4,470 row/s [READ: 4,470 row/s]
+Latency mean              :    1.7 ms [READ: 1.7 ms]
+Latency median            :    1.2 ms [READ: 1.2 ms]
+Latency 95th percentile   :    4.7 ms [READ: 4.7 ms]
+Latency 99th percentile   :    8.9 ms [READ: 8.9 ms]
+Latency 99.9th percentile :   22.1 ms [READ: 22.1 ms]
+Latency max               :   86.2 ms [READ: 86.2 ms]
+Total partitions          :     50,000 [READ: 50,000]
+Total errors              :          0 [READ: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:11
+
+
+Running with 16 threadCount
+Running READ with 16 threads for 50000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                  4188,    4188,    4188,    4188,     2.8,     2.1,     7.5,    12.3,    21.1,    34.9,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                  9443,    5255,    5255,    5255,     3.0,     2.2,     8.2,    14.4,    26.0,    39.2,    2.0,  0.08148,      0,      0,       0,       0,       0,       0
+total,                                                 15670,    6227,    6227,    6227,     2.5,     1.6,     7.5,    15.5,    30.1,    43.5,    3.0,  0.09408,      0,      0,       0,       0,       0,       0
+total,                                                 21765,    6095,    6095,    6095,     2.6,     2.0,     6.7,    11.5,    19.2,    85.7,    4.0,  0.08122,      0,      0,       0,       0,       0,       0
+total,                                                 28167,    6402,    6402,    6402,     2.5,     1.6,     6.8,    15.2,    36.0,    56.9,    5.0,  0.07008,      0,      0,       0,       0,       0,       0
+total,                                                 33595,    5428,    5428,    5428,     2.9,     1.7,     8.9,    21.8,    44.4,    62.1,    6.0,  0.05883,      0,      0,       0,       0,       0,       0
+total,                                                 39862,    6267,    6267,    6267,     2.5,     1.7,     6.8,    12.2,    30.4,    83.0,    7.0,  0.05318,      0,      0,       0,       0,       0,       0
+total,                                                 46311,    6449,    6449,    6449,     2.5,     1.8,     6.5,    11.9,    24.2,    33.7,    8.0,  0.04743,      0,      0,       0,       0,       0,       0
+total,                                                 50000,    5793,    5793,    5793,     2.7,     1.8,     8.1,    15.0,    21.9,    31.1,    8.6,  0.04220,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :    5,789 op/s  [READ: 5,789 op/s]
+Partition rate            :    5,789 pk/s  [READ: 5,789 pk/s]
+Row rate                  :    5,789 row/s [READ: 5,789 row/s]
+Latency mean              :    2.7 ms [READ: 2.7 ms]
+Latency median            :    1.8 ms [READ: 1.8 ms]
+Latency 95th percentile   :    7.3 ms [READ: 7.3 ms]
+Latency 99th percentile   :   14.3 ms [READ: 14.3 ms]
+Latency 99.9th percentile :   30.8 ms [READ: 30.8 ms]
+Latency max               :   85.7 ms [READ: 85.7 ms]
+Total partitions          :     50,000 [READ: 50,000]
+Total errors              :          0 [READ: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:08
+
+
+Running with 24 threadCount
+Running READ with 24 threads for 50000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                  1933,    1933,    1933,    1933,     3.5,     2.5,     9.6,    17.9,    42.9,    52.5,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                  8964,    7031,    7031,    7031,     3.4,     2.6,     8.6,    18.5,    41.8,    58.7,    2.0,  0.40372,      0,      0,       0,       0,       0,       0
+total,                                                 16056,    7092,    7092,    7092,     3.3,     2.6,     8.4,    12.7,    21.0,    56.1,    3.0,  0.26148,      0,      0,       0,       0,       0,       0
+total,                                                 23398,    7342,    7342,    7342,     3.2,     2.0,    10.0,    16.7,    26.9,    33.7,    4.0,  0.19303,      0,      0,       0,       0,       0,       0
+total,                                                 31240,    7842,    7842,    7842,     3.0,     2.0,     9.0,    15.2,    25.8,    34.1,    5.0,  0.15476,      0,      0,       0,       0,       0,       0
+total,                                                 37816,    6576,    6576,    6576,     3.6,     2.2,    11.5,    25.8,    39.9,    48.3,    6.0,  0.12806,      0,      0,       0,       0,       0,       0
+total,                                                 44793,    6977,    6977,    6977,     3.4,     2.5,     9.3,    15.8,    30.0,    39.0,    7.0,  0.10900,      0,      0,       0,       0,       0,       0
+total,                                                 50000,    6374,    6374,    6374,     3.7,     2.3,    11.3,    21.9,    41.6,    46.3,    7.8,  0.09529,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :    6,396 op/s  [READ: 6,396 op/s]
+Partition rate            :    6,396 pk/s  [READ: 6,396 pk/s]
+Row rate                  :    6,396 row/s [READ: 6,396 row/s]
+Latency mean              :    3.4 ms [READ: 3.4 ms]
+Latency median            :    2.3 ms [READ: 2.3 ms]
+Latency 95th percentile   :    9.6 ms [READ: 9.6 ms]
+Latency 99th percentile   :   17.7 ms [READ: 17.7 ms]
+Latency 99.9th percentile :   37.1 ms [READ: 37.1 ms]
+Latency max               :   58.7 ms [READ: 58.7 ms]
+Total partitions          :     50,000 [READ: 50,000]
+Total errors              :          0 [READ: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:07
+
+
+Running with 36 threadCount
+Running READ with 36 threads for 50000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                   953,     953,     953,     953,     4.1,     3.0,    10.6,    20.9,    43.1,    43.1,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                  8730,    7777,    7777,    7777,     4.6,     2.6,    15.1,    38.3,    90.8,   141.4,    2.0,  0.56701,      0,      0,       0,       0,       0,       0
+total,                                                 16821,    8091,    8091,    8091,     4.4,     2.9,    12.9,    23.1,    56.2,    67.6,    3.0,  0.34343,      0,      0,       0,       0,       0,       0
+total,                                                 24319,    7498,    7498,    7498,     4.8,     3.5,    12.9,    24.1,    44.3,    53.9,    4.0,  0.24743,      0,      0,       0,       0,       0,       0
+total,                                                 30866,    6547,    6547,    6547,     5.5,     3.0,    16.7,    45.3,   106.8,   130.1,    5.0,  0.19427,      0,      0,       0,       0,       0,       0
+total,                                                 39183,    8317,    8317,    8317,     4.3,     3.5,     9.6,    17.7,    28.7,    52.1,    6.0,  0.15998,      0,      0,       0,       0,       0,       0
+total,                                                 46472,    7289,    7289,    7289,     4.9,     3.8,    13.0,    20.0,    34.7,    62.7,    7.0,  0.13592,      0,      0,       0,       0,       0,       0
+total,                                                 50000,    7710,    7710,    7710,     4.6,     3.3,    12.4,    18.6,    26.9,    34.3,    7.5,  0.11801,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :    6,705 op/s  [READ: 6,705 op/s]
+Partition rate            :    6,705 pk/s  [READ: 6,705 pk/s]
+Row rate                  :    6,705 row/s [READ: 6,705 row/s]
+Latency mean              :    4.7 ms [READ: 4.7 ms]
+Latency median            :    3.2 ms [READ: 3.2 ms]
+Latency 95th percentile   :   13.0 ms [READ: 13.0 ms]
+Latency 99th percentile   :   25.4 ms [READ: 25.4 ms]
+Latency 99.9th percentile :   60.6 ms [READ: 60.6 ms]
+Latency max               :  141.4 ms [READ: 141.4 ms]
+Total partitions          :     50,000 [READ: 50,000]
+Total errors              :          0 [READ: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:07
+
+
+Running with 54 threadCount
+Running READ with 54 threads for 50000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                  3189,    3189,    3189,    3189,     5.8,     4.4,    15.1,    24.4,    31.4,    44.1,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                 11198,    8009,    8009,    8009,     6.7,     4.3,    19.8,    30.7,    44.4,    63.8,    2.0,  0.31031,      0,      0,       0,       0,       0,       0
+total,                                                 20435,    9237,    9237,    9237,     5.8,     4.0,    16.4,    33.2,    96.1,   157.9,    3.0,  0.24136,      0,      0,       0,       0,       0,       0
+total,                                                 30387,    9952,    9952,    9952,     5.4,     3.1,    17.8,    35.3,    67.8,    83.4,    4.0,  0.18356,      0,      0,       0,       0,       0,       0
+total,                                                 39711,    9324,    9324,    9324,     5.8,     3.3,    18.7,    34.5,    70.1,   109.1,    5.0,  0.14602,      0,      0,       0,       0,       0,       0
+total,                                                 48419,    8708,    8708,    8708,     6.2,     3.4,    18.9,    54.7,   120.2,   138.7,    6.0,  0.12074,      0,      0,       0,       0,       0,       0
+total,                                                 50000,    8248,    8248,    8248,     6.5,     3.9,    23.3,    30.0,    45.9,    48.3,    6.2,  0.10419,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :    8,075 op/s  [READ: 8,075 op/s]
+Partition rate            :    8,075 pk/s  [READ: 8,075 pk/s]
+Row rate                  :    8,075 row/s [READ: 8,075 row/s]
+Latency mean              :    5.9 ms [READ: 5.9 ms]
+Latency median            :    3.6 ms [READ: 3.6 ms]
+Latency 95th percentile   :   18.4 ms [READ: 18.4 ms]
+Latency 99th percentile   :   34.0 ms [READ: 34.0 ms]
+Latency 99.9th percentile :   88.7 ms [READ: 88.7 ms]
+Latency max               :  157.9 ms [READ: 157.9 ms]
+Total partitions          :     50,000 [READ: 50,000]
+Total errors              :          0 [READ: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:06
+
+
+Running with 81 threadCount
+Running READ with 81 threads for 50000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                  7214,    7214,    7214,    7214,     8.2,     5.7,    24.0,    42.5,    66.1,    93.7,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                 16615,    9401,    9401,    9401,     8.6,     5.8,    25.4,    46.0,    79.1,    84.7,    2.0,  0.08967,      0,      0,       0,       0,       0,       0
+total,                                                 27517,   10902,   10902,   10902,     7.3,     4.5,    24.8,    50.1,    82.1,    91.0,    3.0,  0.09470,      0,      0,       0,       0,       0,       0
+total,                                                 37946,   10429,   10429,   10429,     7.8,     4.4,    26.0,    63.4,    90.0,   125.8,    4.0,  0.07787,      0,      0,       0,       0,       0,       0
+total,                                                 49044,   11098,   11098,   11098,     7.2,     4.5,    23.0,    52.1,    80.2,   100.7,    5.0,  0.06711,      0,      0,       0,       0,       0,       0
+total,                                                 50000,   11520,   11520,   11520,     7.5,     4.6,    20.0,    31.5,    66.3,    66.3,    5.1,  0.38062,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :    9,837 op/s  [READ: 9,837 op/s]
+Partition rate            :    9,837 pk/s  [READ: 9,837 pk/s]
+Row rate                  :    9,837 row/s [READ: 9,837 row/s]
+Latency mean              :    7.8 ms [READ: 7.8 ms]
+Latency median            :    4.9 ms [READ: 4.9 ms]
+Latency 95th percentile   :   24.6 ms [READ: 24.6 ms]
+Latency 99th percentile   :   51.3 ms [READ: 51.3 ms]
+Latency 99.9th percentile :   82.0 ms [READ: 82.0 ms]
+Latency max               :  125.8 ms [READ: 125.8 ms]
+Total partitions          :     50,000 [READ: 50,000]
+Total errors              :          0 [READ: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:05
+
+
+Running with 121 threadCount
+Running READ with 121 threads for 50000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                 10105,   10105,   10105,   10105,     9.7,     6.4,    30.8,    46.3,   145.8,   157.4,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                 22095,   11990,   11990,   11990,    10.1,     6.9,    31.9,    52.5,    71.1,    94.2,    2.0,  0.03486,      0,      0,       0,       0,       0,       0
+total,                                                 35709,   13614,   13614,   13614,     8.8,     6.5,    24.0,    42.4,    84.5,    98.8,    3.0,  0.05494,      0,      0,       0,       0,       0,       0
+total,                                                 48628,   12919,   12919,   12919,     9.3,     7.4,    23.5,    38.0,    88.9,    98.1,    4.0,  0.04287,      0,      0,       0,       0,       0,       0
+total,                                                 50000,   10553,   10553,   10553,    10.8,     8.9,    26.1,    36.1,    48.4,    49.6,    4.1,  0.05352,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :   12,107 op/s  [READ: 12,107 op/s]
+Partition rate            :   12,107 pk/s  [READ: 12,107 pk/s]
+Row rate                  :   12,107 row/s [READ: 12,107 row/s]
+Latency mean              :    9.5 ms [READ: 9.5 ms]
+Latency median            :    6.9 ms [READ: 6.9 ms]
+Latency 95th percentile   :   26.9 ms [READ: 26.9 ms]
+Latency 99th percentile   :   45.7 ms [READ: 45.7 ms]
+Latency 99.9th percentile :   85.5 ms [READ: 85.5 ms]
+Latency max               :  157.4 ms [READ: 157.4 ms]
+Total partitions          :     50,000 [READ: 50,000]
+Total errors              :          0 [READ: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:04
+
+
+Running with 181 threadCount
+Running READ with 181 threads for 50000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                  9268,    9268,    9268,    9268,    14.2,     6.9,    49.8,   100.2,   131.3,   146.7,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                 21974,   12706,   12706,   12706,    14.3,     9.6,    44.2,    75.0,   101.8,   119.6,    2.0,  0.09984,      0,      0,       0,       0,       0,       0
+total,                                                 34023,   12049,   12049,   12049,    14.7,    11.1,    36.2,    76.3,   103.9,   117.4,    3.0,  0.06818,      0,      0,       0,       0,       0,       0
+total,                                                 44108,   10085,   10085,   10085,    17.7,     8.3,    66.0,   129.6,   164.2,   190.4,    4.0,  0.05241,      0,      0,       0,       0,       0,       0
+total,                                                 50000,   10701,   10701,   10701,    17.2,    10.5,    57.3,   108.5,   126.0,   130.5,    4.6,  0.04420,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :   10,988 op/s  [READ: 10,988 op/s]
+Partition rate            :   10,988 pk/s  [READ: 10,988 pk/s]
+Row rate                  :   10,988 row/s [READ: 10,988 row/s]
+Latency mean              :   15.4 ms [READ: 15.4 ms]
+Latency median            :    9.5 ms [READ: 9.5 ms]
+Latency 95th percentile   :   49.3 ms [READ: 49.3 ms]
+Latency 99th percentile   :   95.1 ms [READ: 95.1 ms]
+Latency 99.9th percentile :  151.7 ms [READ: 151.7 ms]
+Latency max               :  190.4 ms [READ: 190.4 ms]
+Total partitions          :     50,000 [READ: 50,000]
+Total errors              :          0 [READ: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:04
+
+
+Running with 271 threadCount
+Running READ with 271 threads for 50000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                  1655,    1655,    1655,    1655,    28.7,    16.6,   102.9,   161.0,   189.9,   192.3,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                 15222,   13567,   13567,   13567,    19.5,    12.7,    61.4,    98.6,   132.5,   186.9,    2.0,  0.55244,      0,      0,       0,       0,       0,       0
+total,                                                 27170,   11948,   11948,   11948,    22.6,    12.6,    83.8,   148.4,   204.9,   225.2,    3.0,  0.33580,      0,      0,       0,       0,       0,       0
+total,                                                 40249,   13079,   13079,   13079,    20.5,    14.9,    59.5,    89.3,   125.0,   164.0,    4.0,  0.24193,      0,      0,       0,       0,       0,       0
+total,                                                 50000,   14858,   14858,   14858,    18.0,    12.9,    54.6,   100.9,   130.3,   160.8,    4.7,  0.19681,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :   10,738 op/s  [READ: 10,738 op/s]
+Partition rate            :   10,738 pk/s  [READ: 10,738 pk/s]
+Row rate                  :   10,738 row/s [READ: 10,738 row/s]
+Latency mean              :   20.5 ms [READ: 20.5 ms]
+Latency median            :   13.4 ms [READ: 13.4 ms]
+Latency 95th percentile   :   66.9 ms [READ: 66.9 ms]
+Latency 99th percentile   :  111.7 ms [READ: 111.7 ms]
+Latency 99.9th percentile :  186.9 ms [READ: 186.9 ms]
+Latency max               :  225.2 ms [READ: 225.2 ms]
+Total partitions          :     50,000 [READ: 50,000]
+Total errors              :          0 [READ: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:04
+
+
+Running with 406 threadCount
+Running READ with 406 threads for 50000 iteration
+type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+total,                                                  1822,    1822,    1822,    1822,    36.7,    22.4,   108.9,   176.6,   181.9,   183.1,    1.0,  0.00000,      0,      0,       0,       0,       0,       0
+total,                                                 14852,   13030,   13030,   13030,    32.0,    18.6,   101.3,   156.0,   214.0,   270.8,    2.0,  0.55017,      0,      0,       0,       0,       0,       0
+total,                                                 27353,   12501,   12501,   12501,    32.3,    24.2,    92.5,   149.9,   216.1,   226.5,    3.0,  0.33457,      0,      0,       0,       0,       0,       0
+total,                                                 43220,   15867,   15867,   15867,    25.5,    20.1,    67.7,    90.7,   121.6,   160.7,    4.0,  0.24458,      0,      0,       0,       0,       0,       0
+total,                                                 50000,   16727,   16727,   16727,    24.4,    17.8,    65.6,   101.0,   129.4,   140.0,    4.4,  0.21196,      0,      0,       0,       0,       0,       0
+
+
+Results:
+Op rate                   :   11,350 op/s  [READ: 11,350 op/s]
+Partition rate            :   11,350 pk/s  [READ: 11,350 pk/s]
+Row rate                  :   11,350 row/s [READ: 11,350 row/s]
+Latency mean              :   29.2 ms [READ: 29.2 ms]
+Latency median            :   20.4 ms [READ: 20.4 ms]
+Latency 95th percentile   :   83.7 ms [READ: 83.7 ms]
+Latency 99th percentile   :  138.1 ms [READ: 138.1 ms]
+Latency 99.9th percentile :  196.9 ms [READ: 196.9 ms]
+Latency max               :  270.8 ms [READ: 270.8 ms]
+Total partitions          :     50,000 [READ: 50,000]
+Total errors              :          0 [READ: 0]
+Total GC count            : 0
+Total GC memory           : 0.000 KiB
+Total GC time             :    0.0 seconds
+Avg GC time               :    NaN ms
+StdDev GC time            :    0.0 ms
+Total operation time      : 00:00:04
+
+             id, type                                               total ops,    op/s,    pk/s,   row/s,    mean,     med,     .95,     .99,    .999,     max,   time,   stderr, errors,  gc: #,  max ms,  sum ms,  sdv ms,      mb
+  4 threadCount, READ,                                                  50000,    2899,    2899,    2899,     1.3,     1.0,     3.1,     7.2,    15.4,    75.5,   17.2,  0.06511,      0,      0,       0,       0,       0,       0
+  4 threadCount, total,                                                 50000,    2899,    2899,    2899,     1.3,     1.0,     3.1,     7.2,    15.4,    75.5,   17.2,  0.06511,      0,      0,       0,       0,       0,       0
+  8 threadCount, READ,                                                  50000,    4470,    4470,    4470,     1.7,     1.2,     4.7,     8.9,    22.1,    86.2,   11.2,  0.02958,      0,      0,       0,       0,       0,       0
+  8 threadCount, total,                                                 50000,    4470,    4470,    4470,     1.7,     1.2,     4.7,     8.9,    22.1,    86.2,   11.2,  0.02958,      0,      0,       0,       0,       0,       0
+ 16 threadCount, READ,                                                  50000,    5789,    5789,    5789,     2.7,     1.8,     7.3,    14.3,    30.8,    85.7,    8.6,  0.04220,      0,      0,       0,       0,       0,       0
+ 16 threadCount, total,                                                 50000,    5789,    5789,    5789,     2.7,     1.8,     7.3,    14.3,    30.8,    85.7,    8.6,  0.04220,      0,      0,       0,       0,       0,       0
+ 24 threadCount, READ,                                                  50000,    6396,    6396,    6396,     3.4,     2.3,     9.6,    17.7,    37.1,    58.7,    7.8,  0.09529,      0,      0,       0,       0,       0,       0
+ 24 threadCount, total,                                                 50000,    6396,    6396,    6396,     3.4,     2.3,     9.6,    17.7,    37.1,    58.7,    7.8,  0.09529,      0,      0,       0,       0,       0,       0
+ 36 threadCount, READ,                                                  50000,    6705,    6705,    6705,     4.7,     3.2,    13.0,    25.4,    60.6,   141.4,    7.5,  0.11801,      0,      0,       0,       0,       0,       0
+ 36 threadCount, total,                                                 50000,    6705,    6705,    6705,     4.7,     3.2,    13.0,    25.4,    60.6,   141.4,    7.5,  0.11801,      0,      0,       0,       0,       0,       0
+ 54 threadCount, READ,                                                  50000,    8075,    8075,    8075,     5.9,     3.6,    18.4,    34.0,    88.7,   157.9,    6.2,  0.10419,      0,      0,       0,       0,       0,       0
+ 54 threadCount, total,                                                 50000,    8075,    8075,    8075,     5.9,     3.6,    18.4,    34.0,    88.7,   157.9,    6.2,  0.10419,      0,      0,       0,       0,       0,       0
+ 81 threadCount, READ,                                                  50000,    9837,    9837,    9837,     7.8,     4.9,    24.6,    51.3,    82.0,   125.8,    5.1,  0.38062,      0,      0,       0,       0,       0,       0
+ 81 threadCount, total,                                                 50000,    9837,    9837,    9837,     7.8,     4.9,    24.6,    51.3,    82.0,   125.8,    5.1,  0.38062,      0,      0,       0,       0,       0,       0
+121 threadCount, READ,                                                  50000,   12107,   12107,   12107,     9.5,     6.9,    26.9,    45.7,    85.5,   157.4,    4.1,  0.05352,      0,      0,       0,       0,       0,       0
+121 threadCount, total,                                                 50000,   12107,   12107,   12107,     9.5,     6.9,    26.9,    45.7,    85.5,   157.4,    4.1,  0.05352,      0,      0,       0,       0,       0,       0
+181 threadCount, READ,                                                  50000,   10988,   10988,   10988,    15.4,     9.5,    49.3,    95.1,   151.7,   190.4,    4.6,  0.04420,      0,      0,       0,       0,       0,       0
+181 threadCount, total,                                                 50000,   10988,   10988,   10988,    15.4,     9.5,    49.3,    95.1,   151.7,   190.4,    4.6,  0.04420,      0,      0,       0,       0,       0,       0
+271 threadCount, READ,                                                  50000,   10738,   10738,   10738,    20.5,    13.4,    66.9,   111.7,   186.9,   225.2,    4.7,  0.19681,      0,      0,       0,       0,       0,       0
+271 threadCount, total,                                                 50000,   10738,   10738,   10738,    20.5,    13.4,    66.9,   111.7,   186.9,   225.2,    4.7,  0.19681,      0,      0,       0,       0,       0,       0
+406 threadCount, READ,                                                  50000,   11350,   11350,   11350,    29.2,    20.4,    83.7,   138.1,   196.9,   270.8,    4.4,  0.21196,      0,      0,       0,       0,       0,       0
+406 threadCount, total,                                                 50000,   11350,   11350,   11350,    29.2,    20.4,    83.7,   138.1,   196.9,   270.8,    4.4,  0.21196,      0,      0,       0,       0,       0,       0
+END
