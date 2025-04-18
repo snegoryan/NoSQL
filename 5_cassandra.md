@@ -1,4 +1,4 @@
-## Домашнее задание
+## Домашнее задание 5. Cassandra
 
 Масштабирование и отказоустойчивость Cassandra
 
@@ -22,7 +22,7 @@
 ---
 ### **1. Развёртывание 3-узлового кластера Cassandra в Docker**
 
-Используем `docker-compose.yml` для автоматизации развёртывания:
+Используем [docker-compose.yml](5_cassandra_files/docker-compose.yml) для автоматизации развёртывания:
 ```yaml
 version: '3'
 
@@ -319,9 +319,9 @@ CREATE TABLE stress_test.users (
 ### **1. Логи инструмента**
 
 Проверяем файлы:
-- `stress_write.log` - статистика по записи
-- `stress_read.log` - статистика по чтению
-- `stress_mixed.log` - смешанная статистика
+- [stress_write.log](5_cassandra_files/stress_write.log) - статистика по записи
+- [stress_read.log](5_cassandra_files/stress_read.log) - статистика по чтению
+- [stress_mixed.log](5_cassandra_files/stress_mixed.log) - смешанная статистика
 
 **Пример вывода:**
 ```bash
@@ -348,11 +348,14 @@ Improvement over 121 threadCount: -3%
 ```
 
 Проверяем файлы:
-- `stress_write.html` - отчёт по записи
-- `stress_read.html` - отчёт по чтению
-- `stress_mixed.html` - отчёт по смешанной статистике
+- [stress_write.html](5_cassandra_files/stress_write.html) - отчёт по записи
+- [stress_read.html](5_cassandra_files/stress_read.html) - отчёт по чтению
+- [stress_mixed.html](5_cassandra_files/stress_mixed.html) - отчёт по смешанной статистике
+
 **Пример отчёта в виде `html`**
-![[stress_report_example.png]]
+
+![png](5_cassandra_files/stress_report_example.png)  
+
 ### **2. Мониторинг кластера**
 
 - **Через `nodetool`:**
