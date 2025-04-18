@@ -1,0 +1,84 @@
+version: '3'
+
+services:
+  cassandra-node1:
+    image: cassandra:4.1
+    restart: always
+    container_name: cassandra-node1
+    hostname: cassandra-node1
+    healthcheck:
+        test: ["CMD", "cqlsh", "-e", "describe keyspaces" ]
+        interval: 5s
+        timeout: 5s
+        retries: 60
+    environment:
+      - CASSANDRA_SEEDS=cassandra-node1,cassandra-node2
+      - CASSANDRA_CLUSTER_NAME=MyCluster
+      - CASSANDRA_DC=datacenter1
+    ports:
+      - "9042:9042"
+    volumes:
+      - cassandra-node1-etc:/etc/cassandra
+      - cassandra-node1-data:/var/lib/cassandra
+    networks:
+      - cassandra-net
+
+  cassandra-node2:
+    image: cassandra:4.1
+    restart: always
+    container_name: cassandra-node2
+    hostname: cassandra-node2
+    healthcheck:
+        test: ["CMD", "cqlsh", "-e", "describe keyspaces"]
+        interval: 5s
+        timeout: 5s
+        retries: 60
+    environment:
+      - CASSANDRA_SEEDS=cassandra-node1,cassandra-node2
+      - CASSANDRA_CLUSTER_NAME=MyCluster
+      - CASSANDRA_DC=datacenter1
+    ports:
+      - "9043:9042"
+    volumes:
+      - cassandra-node2-etc:/etc/cassandra
+      - cassandra-node2-data:/var/lib/cassandra
+    depends_on:
+      - cassandra-node1
+    networks:
+      - cassandra-net
+
+  cassandra-node3:
+    image: cassandra:4.1
+    restart: always
+    container_name: cassandra-node3
+    hostname: cassandra-node3
+    healthcheck:
+        test: ["CMD", "cqlsh", "-e", "describe keyspaces" ]
+        interval: 5s
+        timeout: 5s
+        retries: 60
+    environment:
+      - CASSANDRA_SEEDS=cassandra-node1,cassandra-node2
+      - CASSANDRA_CLUSTER_NAME=MyCluster
+      - CASSANDRA_DC=datacenter1
+    ports:
+      - "9044:9042"
+    volumes:
+      - cassandra-node3-etc:/etc/cassandra
+      - cassandra-node3-data:/var/lib/cassandra
+    depends_on:
+      - cassandra-node2
+    networks:
+      - cassandra-net
+
+volumes:
+  cassandra-node1-etc:
+  cassandra-node2-etc:
+  cassandra-node3-etc:
+  cassandra-node1-data:
+  cassandra-node2-data:
+  cassandra-node3-data:
+
+networks:
+  cassandra-net:
+    driver: bridge
