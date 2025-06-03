@@ -289,7 +289,7 @@ docker-compose up -d
 ### 2.3 Проверка работоспособности
 
 **Откроем Consul UI в браузере: [http://localhost:8500](http://localhost:8500/)**
-![[Pasted image 20250603110715.png]]
+![png](8_dcs_files/consul_ui_1.png)
 
 **Проверим список нод в консоле:**
 ```bash
@@ -319,7 +319,7 @@ server1  71ab4bd9-4b2a-a0db-cc4f-3acefead6036  172.20.0.2:8300  leader    true  
 ```
 **Осталось 2 сервера `server1` и `server3`.**
 **В UI тоже видим 2 сервера:**
-![[Pasted image 20250603111222.png]]
+![png](8_dcs_files/consul_ui_2.png)
 
 #### Тест 2: Остановка двух серверов (кворум потерян)
 
