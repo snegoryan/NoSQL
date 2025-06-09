@@ -153,7 +153,6 @@ python3 otus-py-producer.py
 
 ```
 
-![[otus-py-producer.png]]
 ![png](12_kafka_files/otus-py-producer.png)
 
 Сообщения успешно записаны в топик `my-topic`
